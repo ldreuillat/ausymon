@@ -12,18 +12,19 @@
     </header>
 
     <main>
-      <HomePage />
+      <GeekSelector />
     </main>
   </div>
 </template>
 
 <script>
-import HomePage from './components/HomePage.vue';
+// import HomePage from './home/HomePage.vue';
+import GeekSelector from './selection/GeekSelector.vue';
 
 export default {
   name: 'App',
   components: {
-    HomePage,
+    GeekSelector,
   },
 };
 </script>
