@@ -4,27 +4,43 @@
       <nav>
         <ul>
           <li class="nav-item">
-            <img class="logo" src="./assets/ausyball.png" alt="Logo" />
-            Hire them all
+            <router-link class="header-link" :to="{name: 'Home'}" exact>
+              <img class="logo" src="./assets/ausyball.png" alt="Logo" />
+              Hire them all
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="header-link" :to="{name: 'GeekSelector'}" exact>
+              <img class="logo" src="./assets/candidate.png" alt="Logo" />
+              Sélection
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <AgendaCount :count="globalNbInterviews" />
           </li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <GeekSelector />
+      <router-view @geekMeetingAdded="interviews => this.globalNbInterviews = interviews"/>
     </main>
   </div>
 </template>
 
 <script>
-// import HomePage from './home/HomePage.vue';
-import GeekSelector from './selection/GeekSelector.vue';
+import AgendaCount from './agenda/AgendaCount.vue';
 
 export default {
   name: 'App',
   components: {
-    GeekSelector,
+    AgendaCount,
+  },
+
+  data() {
+    return {
+      globalNbInterviews: -1,
+    };
   },
 };
 </script>
@@ -62,5 +78,20 @@ ul {
 .logo {
   vertical-align: middle;
   height: 50px;
+}
+.header-link {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header-link:hover {
+  color: red;
+  cursor: pointer;
+}
+.router-link-active {
+  border-radius: 5px;
+  padding: 2px;
+  color: yellow;
+  background-color: red;
 }
 </style>

@@ -4,7 +4,7 @@
       <img class="geek" src="../assets/geek-home.png" aria-hidden="true" alt="Geek" />
     </div>
     <div>
-      <a class="hire-them-all" href="">AUSYMON – Embauchez les tous!</a>
+      <router-link class="hire-them-all" to="/selection">AUSYMON – Embauchez les tous!</router-link>
     </div>
   </div>
 </template>
