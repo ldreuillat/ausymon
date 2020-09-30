@@ -4,15 +4,25 @@
       <nav>
         <ul>
           <li class="nav-item">
-            <router-link class="header-link" :to="{name: 'Home'}" exact>
+            <router-link class="header-link" :to="{ name: 'Home' }" exact>
               <img class="logo" src="./assets/ausyball.png" alt="Logo" />
               Hire them all
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="header-link" :to="{name: 'GeekSelector'}" exact>
+            <router-link
+              class="header-link"
+              :to="{ name: 'GeekSelector' }"
+              exact
+            >
               <img class="logo" src="./assets/candidate.png" alt="Logo" />
               Sélection
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="header-link" :to="{ name: 'ShowUsages' }" exact>
+              <img class="logo" src="./assets/usages.png" alt="Logo" />
+              Usages
             </router-link>
           </li>
           <li class="nav-item">
@@ -23,7 +33,15 @@
     </header>
 
     <main>
-      <router-view @geekMeetingAdded="interviews => this.globalNbInterviews = interviews"/>
+      <router-view
+        @geekMeetingAdded="
+          (interviews) => (this.globalNbInterviews = interviews)
+        "
+      />
+      <br/><br/>
+      <div class="intro-footer">
+        <router-view name="footer" />
+      </div>
     </main>
   </div>
 </template>
@@ -93,5 +111,14 @@ ul {
   padding: 2px;
   color: yellow;
   background-color: red;
+}
+.intro-footer {
+  position: relative;
+  width: 100%;
+  top: 30px;
+  left: 0px;
+  color: yellow;
+  background-color: red;
+  padding: 3px;
 }
 </style>
