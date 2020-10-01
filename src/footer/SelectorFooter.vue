@@ -1,6 +1,6 @@
 <template>
   <div>
-    Sélectionnez vite un candidat et découvrer toutes se compétences.
+    Sélectionnez vite un candidat et découvrez toutes ses compétences.
   </div>
 </template>
 
