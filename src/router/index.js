@@ -35,6 +35,11 @@ export default new Router({
     name: 'TechnoDetails',
     component: TechnoDetails,
     props: true,
+    beforeEnter(to, from, next) {
+      const isValidId = Number.isInteger(Number(to.params.candidateId));
+      console.log(`isValidId : ${isValidId}`);
+      next(isValidId);
+    },
   },
   {
     path: '/usages',

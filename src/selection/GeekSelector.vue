@@ -48,9 +48,18 @@ function getNextGeekIndex(index, length) {
 
 export default {
   name: 'GeekSelector',
+
+  beforeRouteLeave(to, from, next) {
+    if (this.interviewPlaned) {
+      next(true);
+    } else {
+      next(false);
+    }
+  },
   components: { CandidateDetails, CollapsibleSection },
   data() {
     return {
+      interviewPlaned: false,
       availableCandidates,
       selectGeekIndex: 0,
       meetDate: new Date(),
@@ -84,6 +93,9 @@ export default {
       this.selectGeekIndex = availableCandidates.geeks.length - 1;
     },
     alertNewInterview(nbInterviews) {
+      if (nbInterviews > 0) {
+        this.interviewPlaned = true;
+      }
       this.$emit('geekMeetingAdded', nbInterviews);
     },
     showTechnoDetails() {
