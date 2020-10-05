@@ -57,10 +57,13 @@ export default {
     AgendaCount,
   },
 
-  data() {
-    return {
-      globalNbInterviews: this.$store.state.interviews.length,
-    };
+  created() {
+    this.$store.dispatch('getInterviews');
+  },
+  computed: {
+    globalNbInterviews() {
+      return this.$store.state.interviews.length;
+    },
   },
 };
 </script>
