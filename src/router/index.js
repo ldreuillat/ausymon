@@ -10,6 +10,7 @@ import UsageGlossary from '../usage/UsageGlossary.vue';
 import UsageCopyright from '../usage/UsageCopyright.vue';
 import HomeFooter from '../footer/HomeFooter.vue';
 import SelectorFooter from '../footer/SelectorFooter.vue';
+import AgendaDetails from '../agenda/AgendaDetails.vue';
 
 Vue.use(Router);
 
@@ -62,5 +63,10 @@ export default new Router({
         component: UsageCopyright,
       },
     ],
+  },
+  {
+    path: '/interviews',
+    name: 'ShowInterviews',
+    component: AgendaDetails,
   }],
 });

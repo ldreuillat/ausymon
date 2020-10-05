@@ -31,17 +31,6 @@
         </td>
       </tr>
     </table>
-    <table v-if="meetings.length > 0" id="geek-info">
-        <caption>Liste des entretiens</caption>
-        <tr>
-          <th id="name">Nom</th>
-          <th id="meeting">Date d'entretien</th>
-        </tr>
-        <tr v-for="(meet, index) in meetings" :key="index">
-          <td>{{ meet.name }}</td>
-          <td>{{ meet.meeting }}</td>
-        </tr>
-      </table>
   </div>
 </template>
 
@@ -61,7 +50,7 @@ export default {
     };
   },
   created() {
-    this.$emit('meetingAdded', 0);
+    this.$emit('meetingAdded', this.$store.state.interviews.length);
   },
   computed: {
     levelStyle() {
@@ -81,6 +70,9 @@ export default {
       }
       return 3;
     },
+    allInterviews() {
+      return this.$store.state.interviews;
+    },
   },
   methods: {
     addToMeetings() {
@@ -88,15 +80,17 @@ export default {
       const meeting = this.meetDate.toLocaleDateString('fr-FR');
       let available = false;
 
-      this.meetings.forEach((element) => {
+      this.allInterviews.forEach((element) => {
         if (element.name === geek.name) {
           available = true;
+          this.$noty.error(`Un entretien est déjà créé pour le candidat : ${geek.name}`);
         }
       });
 
       if (available === false) {
+        this.$store.commit('addInterview', { ...geek, meeting });
         this.meetings.push({ ...geek, meeting });
-        this.$emit('meetingAdded', this.meetings.length);
+        this.$emit('meetingAdded', this.allInterviews.length);
       }
     },
   },

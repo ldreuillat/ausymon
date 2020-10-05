@@ -26,7 +26,9 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <AgendaCount :count="globalNbInterviews" />
+            <router-link class="header-link" :to="{ name: 'ShowInterviews' }" exact>
+              <AgendaCount :count="globalNbInterviews" />
+            </router-link>
           </li>
         </ul>
       </nav>
@@ -57,7 +59,7 @@ export default {
 
   data() {
     return {
-      globalNbInterviews: -1,
+      globalNbInterviews: this.$store.state.interviews.length,
     };
   },
 };

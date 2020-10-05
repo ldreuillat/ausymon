@@ -53,6 +53,7 @@ export default {
     if (this.interviewPlaned) {
       next(true);
     } else {
+      this.$noty.warning('Créer au moins un entretien avant de pouvoir sortir de la page!');
       next(false);
     }
   },
