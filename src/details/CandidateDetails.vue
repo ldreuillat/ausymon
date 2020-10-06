@@ -88,7 +88,8 @@ export default {
       });
 
       if (available === false) {
-        this.$store.dispatch('addNewInterview', { ...geek, meeting });
+        this.$store.dispatch('addNewInterview', { ...geek, meeting })
+          .then(() => this.$router.push({ name: 'ShowInterviews' }));
         this.meetings.push({ ...geek, meeting });
         this.$emit('meetingAdded', this.allInterviews.length);
       }
