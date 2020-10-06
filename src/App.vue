@@ -61,8 +61,13 @@ export default {
     this.$store.dispatch('getInterviews');
   },
   computed: {
-    globalNbInterviews() {
-      return this.$store.state.interviews.length;
+    globalNbInterviews: {
+      get() {
+        return this.$store.state.interviews.length;
+      },
+      set(nbInterviews) {
+        return nbInterviews;
+      },
     },
   },
 };
