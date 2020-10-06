@@ -27,5 +27,9 @@ export default new Vuex.Store({
         .then((result) => commit('updateInterviews', result.data))
         .catch(console.error);
     },
+    addNewInterview({ commit }, interview) {
+      axios.post('/api/newinterview', interview)
+        .then(() => commit('addInterview', interview));
+    },
   },
 });

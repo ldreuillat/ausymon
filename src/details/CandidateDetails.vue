@@ -88,7 +88,7 @@ export default {
       });
 
       if (available === false) {
-        this.$store.commit('addInterview', { ...geek, meeting });
+        this.$store.dispatch('addNewInterview', { ...geek, meeting });
         this.meetings.push({ ...geek, meeting });
         this.$emit('meetingAdded', this.allInterviews.length);
       }
