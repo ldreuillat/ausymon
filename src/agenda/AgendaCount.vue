@@ -1,14 +1,17 @@
 <template>
   <div>
-    <img class="logo" src="../assets/agenda.png" alt="Logo" />
+    <img v-logo src="../assets/agenda.png" alt="Logo" />
     <div class="roundcorner">{{ count }}</div>
   </div>
 </template>
 
 <script>
+import logoDirective from '../shared/logo-directive';
 
 export default {
   name: 'AgendaCount',
+
+  directives: { logo: logoDirective },
 
   props: {
     count: {

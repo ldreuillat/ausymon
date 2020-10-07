@@ -5,7 +5,7 @@
         <ul>
           <li class="nav-item">
             <router-link class="header-link" :to="{ name: 'Home' }" exact>
-              <img class="logo" src="./assets/ausyball.png" alt="Logo" />
+              <img v-logo src="./assets/ausyball.png" alt="Logo" />
               Hire them all
             </router-link>
           </li>
@@ -15,13 +15,13 @@
               :to="{ name: 'GeekSelector' }"
               exact
             >
-              <img class="logo" src="./assets/candidate.png" alt="Logo" />
+              <img v-logo src="./assets/candidate.png" alt="Logo" />
               Sélection
             </router-link>
           </li>
           <li class="nav-item">
             <router-link class="header-link" :to="{ name: 'ShowUsages' }" exact>
-              <img class="logo" src="./assets/usages.png" alt="Logo" />
+              <img v-logo src="./assets/usages.png" alt="Logo" />
               Usages
             </router-link>
           </li>
@@ -50,9 +50,13 @@
 
 <script>
 import AgendaCount from './agenda/AgendaCount.vue';
+import logoDirective from './shared/logo-directive';
 
 export default {
   name: 'App',
+
+  directives: { logo: logoDirective },
+
   components: {
     AgendaCount,
   },
@@ -102,10 +106,6 @@ ul {
   padding: 5px 10px;
   font-size: 22px;
   border-right: 1px solid black;
-}
-.logo {
-  vertical-align: middle;
-  height: 50px;
 }
 .header-link {
   color: black;
