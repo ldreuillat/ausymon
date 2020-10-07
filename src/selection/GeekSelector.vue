@@ -60,7 +60,6 @@ export default {
   components: { CandidateDetails, CollapsibleSection },
   data() {
     return {
-      interviewPlaned: false,
       availableCandidates,
       selectGeekIndex: 0,
       meetDate: new Date(),
@@ -71,6 +70,9 @@ export default {
   computed: {
     selectedGeek() {
       return availableCandidates.geeks[this.selectGeekIndex];
+    },
+    interviewPlaned() {
+      return this.$store.getters.nbInterviews;
     },
   },
   methods: {

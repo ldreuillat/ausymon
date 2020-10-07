@@ -20,6 +20,9 @@ export default new Vuex.Store({
     levelInterviews(state) {
       return state.interviews.sort((a, b) => b.level - a.level);
     },
+    nbInterviews(state) {
+      return state.interviews.length;
+    },
   },
   actions: {
     getInterviews({ commit }) {
