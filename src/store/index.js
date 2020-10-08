@@ -26,12 +26,12 @@ export default new Vuex.Store({
   },
   actions: {
     getInterviews({ commit }) {
-      axios.get('/api/interviews')
+      axios.get(`${process.env.VUE_APP_REST_URL}/interviews`)
         .then((result) => commit('updateInterviews', result.data))
         .catch(console.error);
     },
     addNewInterview({ commit }, interview) {
-      return axios.post('/api/newinterview', interview)
+      return axios.post(`${process.env.VUE_APP_REST_URL}/newinterview`, interview)
         .then(() => commit('addInterview', interview));
     },
   },
