@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-logo src="../assets/agenda.png" alt="Logo" />
+    <img v-logo="{ effect: 'invert(1)', height: '75px' }" src="../assets/agenda.png" alt="Logo" />
     <div class="roundcorner">{{ count }}</div>
   </div>
 </template>

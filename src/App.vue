@@ -5,7 +5,11 @@
         <ul>
           <li class="nav-item">
             <router-link class="header-link" :to="{ name: 'Home' }" exact>
-              <img v-logo src="./assets/ausyball.png" alt="Logo" />
+              <img
+                v-logo="{ effect: 'blur(5px)', height: '75px' }"
+                src="./assets/ausyball.png"
+                alt="Logo"
+              />
               Hire them all
             </router-link>
           </li>
@@ -15,18 +19,30 @@
               :to="{ name: 'GeekSelector' }"
               exact
             >
-              <img v-logo src="./assets/candidate.png" alt="Logo" />
+              <img
+                v-logo="{ effect: 'grayscale(100%)', height: '75px' }"
+                src="./assets/candidate.png"
+                alt="Logo"
+              />
               Sélection
             </router-link>
           </li>
           <li class="nav-item">
             <router-link class="header-link" :to="{ name: 'ShowUsages' }" exact>
-              <img v-logo src="./assets/usages.png" alt="Logo" />
+              <img
+                v-logo="{ effect: 'sepia(1)', height: '75px' }"
+                src="./assets/usages.png"
+                alt="Logo"
+              />
               Usages
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="header-link" :to="{ name: 'ShowInterviews' }" exact>
+            <router-link
+              class="header-link"
+              :to="{ name: 'ShowInterviews' }"
+              exact
+            >
               <AgendaCount :count="globalNbInterviews" />
             </router-link>
           </li>
@@ -40,7 +56,7 @@
           (interviews) => (this.globalNbInterviews = interviews)
         "
       />
-      <br/><br/>
+      <br /><br />
       <div class="intro-footer">
         <router-view name="footer" />
       </div>
