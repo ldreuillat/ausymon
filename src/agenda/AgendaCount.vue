@@ -6,12 +6,9 @@
 </template>
 
 <script>
-import logoDirective from '../shared/logo-directive';
 
 export default {
   name: 'AgendaCount',
-
-  directives: { logo: logoDirective },
 
   props: {
     count: {

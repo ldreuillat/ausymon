@@ -66,12 +66,9 @@
 
 <script>
 import AgendaCount from './agenda/AgendaCount.vue';
-import logoDirective from './shared/logo-directive';
 
 export default {
   name: 'App',
-
-  directives: { logo: logoDirective },
 
   components: {
     AgendaCount,

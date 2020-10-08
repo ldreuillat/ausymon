@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VCalendar from 'v-calendar';
 import VueNoty from 'vuejs-noty';
+import logoDirective from './shared/logo-directive';
 import App from './App.vue';
 import 'vuejs-noty/dist/vuejs-noty.css';
 
@@ -16,6 +17,7 @@ Vue.use(VueNoty, {
   progressBar: true,
   layout: 'topCenter',
 });
+Vue.directive('logo', logoDirective);
 
 new Vue({
   render: (h) => h(App),
