@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VCalendar from 'v-calendar';
 import VueNoty from 'vuejs-noty';
 import logoDirective from './shared/logo-directive';
+import salaryFilter from './shared/salary-filter';
 import App from './App.vue';
 import 'vuejs-noty/dist/vuejs-noty.css';
 
@@ -18,6 +19,7 @@ Vue.use(VueNoty, {
   layout: 'topCenter',
 });
 Vue.directive('logo', logoDirective);
+Vue.filter('salary', salaryFilter);
 
 new Vue({
   render: (h) => h(App),

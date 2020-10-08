@@ -36,14 +36,11 @@
 
 <script>
 import CandidateRating from '../rating/CandidateRating.vue';
-import salaryFilter from '../shared/salary-filter';
 
 export default {
   name: 'CandidateDetails',
   components: { CandidateRating },
-  filters: {
-    salary: salaryFilter,
-  },
+
   props: ['currentGeek'],
 
   data() {
