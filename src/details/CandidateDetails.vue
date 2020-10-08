@@ -15,7 +15,7 @@
         <td>{{currentGeek.title}}</td>
         <td>{{currentGeek.years}} ans</td>
         <td><CandidateRating :level='currentGeek.level' /></td>
-        <td>{{currentGeek.salary}} €</td>
+        <td>{{currentGeek.salary | salary}}</td>
         <td>
           <img v-if="profitabilityCandidate === 1" src="../assets/icon_sick.png" alt="Mauvaise" />
           <img v-if="profitabilityCandidate === 2" src="../assets/icon_medium.png" alt="Moyenne" />
@@ -36,11 +36,14 @@
 
 <script>
 import CandidateRating from '../rating/CandidateRating.vue';
+import salaryFilter from '../shared/salary-filter';
 
 export default {
   name: 'CandidateDetails',
   components: { CandidateRating },
-
+  filters: {
+    salary: salaryFilter,
+  },
   props: ['currentGeek'],
 
   data() {
