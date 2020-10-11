@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VCalendar from 'v-calendar';
 import VueNoty from 'vuejs-noty';
+import AusyUniversity from 'ausy-lib';
 import logoDirective from './shared/logo-directive';
 import salaryFilter from './shared/salary-filter';
 import App from './App.vue';
@@ -10,6 +11,7 @@ import router from './router';
 import store from './store';
 
 Vue.config.productionTip = false;
+Vue.use(AusyUniversity);
 Vue.use(VCalendar, {
   componentPrefix: 'vc',
 });

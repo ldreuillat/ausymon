@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div>
+      <AusyUniversity msg="Welcome to Ausy University" />
       <img class="geek" src="../assets/geek-home.png" aria-hidden="true" alt="Geek" />
     </div>
     <div>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'HomePage',
   props: {
